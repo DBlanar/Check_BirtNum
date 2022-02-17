@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Check_BirtNum"
         mc:Ignorable="d"
-        Title="Okno s vysledkem" Height="720" Width="1280">
+        Title="Okno s vysledkem" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100*"/>
@@ -22,7 +22,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Name="NumberShow" Content="XXXXXXXXXX" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36"/>
+        <Label Name="NumberShow" Content="XXXXXXXXXX" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show0" Content="OK" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show1" Content="OK" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show2" Content="OK" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
@@ -34,12 +34,12 @@
         <Label Name="Show7" Content="OK" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show8" Content="OK" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show9" Content="OK" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
-        <Label Name="Show10" Content="OK" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <Label Name="Show10" Content="Ne" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show11" Content="OK" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="Rodné číslo:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Margin="100,0,0,0"/>
-        <Label Content="Minimální délka:" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="Maximální délka:" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="Čísla:" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="Rodné číslo:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.ColumnSpan="2" Margin="100,0,0,0"/>
+        <Label Content="Minimální délka:" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="Maximální délka:" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="jenom čísla:" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Nulova koncovka u 9 RČ:" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="EPČ a zároveň RČ+:" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Rok:" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" FontSize="25" Margin="0,0,0,0"/>
@@ -49,6 +49,6 @@
         <Label Content="koncovka u EČP u 9 RČ:" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="koncovka u EČP u 10 RČ:" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Dělitelnost 11:" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
-        <Button x:Name="Return" Click="Return_Click" Content="zpět" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="0" VerticalAlignment="Center" FontSize="25" Width="80" Height="50"/>
+        <Button x:Name="Return" Click="Return_Click" Content="zavřít" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="0" VerticalAlignment="Center" FontSize="25" Width="80" Height="40"/>
     </Grid>
 </Window>

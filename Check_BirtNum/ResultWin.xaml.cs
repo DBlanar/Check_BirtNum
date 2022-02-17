@@ -26,11 +26,6 @@ namespace Check_BirtNum
 
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow winMain = new MainWindow();
-
-            winMain.Input.Text = "";
-
-            winMain.Show();
             this.Close();
         }
     }
