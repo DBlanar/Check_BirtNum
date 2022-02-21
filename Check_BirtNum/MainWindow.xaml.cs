@@ -65,8 +65,12 @@ namespace Check_BirtNum
             // kontrola zda EPČ a RČ+ = true
             if (chk.Check4() == false)
             {
-                win.Show10.Content = "Ano";
+                win.Show10.Content = "True";
                 helpBool = true;
+            }
+            else
+            {
+                win.Show10.Content = "False";
             }
 
             // kontrola zda rok cisla je ve spravnem rozmezi
@@ -80,6 +84,49 @@ namespace Check_BirtNum
             if (chk.Check6() == false)
             {
                 win.Show0.Content = "Chyba";
+                helpBool = true;
+            }
+
+            // kontrola zda den cisla je ve spravnem rozmezi
+            if (chk.Check7() == false)
+            {
+                win.Show1.Content = "Chyba";
+                helpBool = true;
+            }
+
+            // kontrola zda cislo neni z budoucnosti cisla je ve spravnem rozmezi
+            if (chk.Check8() == false)
+            {
+                win.Show2.Content = "Chyba";
+                helpBool = true;
+            }
+
+            // kontrola zda cislo ma spravnou velkou koncovku jestli je cisle 9 mistne
+            if (chk.Check9() == false)
+            {
+                win.Show3.Content = "True";
+                helpBool = true;
+            }
+            else
+            {
+                win.Show3.Content = "False";
+            }
+
+            // kontrola zda cislo ma spravnou velkou koncovku jestli je cisle 10 mistne
+            if (chk.Check10() == false)
+            {
+                win.Show4.Content = "True";
+                helpBool = true;
+            }
+            else
+            {
+                win.Show4.Content = "False";
+            }
+
+            // kontrola zda je cislo delitelne 11 beze zbitku
+            if (chk.Check11() == false)
+            {
+                win.Show5.Content = "Chyba";
                 helpBool = true;
             }
 

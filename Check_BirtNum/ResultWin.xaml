@@ -34,7 +34,7 @@
         <Label Name="Show7" Content="OK" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show8" Content="OK" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show9" Content="OK" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
-        <Label Name="Show10" Content="Ne" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <Label Name="Show10" Content="OK" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Name="Show11" Content="OK" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Rodné číslo:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Grid.ColumnSpan="2" Margin="100,0,0,0"/>
         <Label Content="Minimální délka:" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" FontSize="25"/>
@@ -44,11 +44,11 @@
         <Label Content="EPČ a zároveň RČ+:" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Rok:" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" FontSize="25" Margin="0,0,0,0"/>
         <Label Content="Měsíc:" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="Den vůčí měsíci:" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="Den:" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="další chyba:" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="koncovka u EČP u 9 RČ:" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="koncovka u EČP u 10 RČ:" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Dělitelnost 11:" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
-        <Button x:Name="Return" Click="Return_Click" Content="zavřít" HorizontalAlignment="Left" Margin="50,0,0,0" Grid.Row="0" VerticalAlignment="Center" FontSize="25" Width="80" Height="40"/>
+        <Button x:Name="Return" Click="Return_Click" Content="zavřít" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="0" VerticalAlignment="Center" FontSize="25" Width="80" Height="40"/>
     </Grid>
 </Window>

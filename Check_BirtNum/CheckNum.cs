@@ -9,7 +9,12 @@ namespace Check_BirtNum
 {
     class CheckNum
     {
-        private protected Int64 BirthNum;
+        Int64 BirthNum;
+        int days;
+        int year;
+        int month;
+        bool MainEPC = false;
+
         public bool Check0(string a)
         {
             bool b = false;
@@ -100,13 +105,14 @@ namespace Check_BirtNum
             if (helpIntEPC > 40)
             {
                 epc = true;
+                MainEPC = true;
             }
 
             if (epc && rcPlus)
             {
-                return b;
+                return b = true;
             }
-            return b = true;
+            return b;
         }
 
         public bool Check5()
@@ -114,10 +120,22 @@ namespace Check_BirtNum
             bool b = false;
             int helpInt = Int32.Parse(BirthNum.ToString().Substring(0, 2));
 
-            if (BirthNum.ToString().Length == 10 && helpInt >= 0 && helpInt <= 99 || BirthNum.ToString().Length == 9 && helpInt > 53)
+            if (BirthNum.ToString().Length == 9 && helpInt > 53 && helpInt < 100)
             {
+                year = Int32.Parse("18" + helpInt.ToString());
                 return b = true;
             }
+            else if (BirthNum.ToString().Length == 10 && helpInt < 100 && helpInt > 53 || BirthNum.ToString().Length == 9 && helpInt >= 0 && helpInt < 54)
+            {
+                year = Int32.Parse("19" + helpInt.ToString());
+                return b = true;
+            }
+            else if (BirthNum.ToString().Length == 10 && helpInt < 54 && helpInt >= 0)
+            {
+                year = Int32.Parse("20" + helpInt.ToString());
+                return b = true;
+            }
+
             return b;
         }
 
@@ -126,11 +144,106 @@ namespace Check_BirtNum
             bool b = false;
             int helpInt = Int32.Parse(BirthNum.ToString().Substring(2, 2));
 
-            if (BirthNum.ToString().Length == 10 && BirthNum.ToString().Length == 9 && helpInt > 0 && helpInt < 13)
+            if (helpInt > 0 && helpInt < 13 && BirthNum.ToString().Length == 10 || BirthNum.ToString().Length == 9)
             {
+                month = helpInt;
                 return b = true;
             }
             return b;
         }
+
+        public bool Check7()
+        {
+            bool b = false;
+            int helpInt = Int32.Parse(BirthNum.ToString().Substring(4, 2));
+
+            if (Int32.Parse(BirthNum.ToString().Substring(2, 2)) < 13 && Int32.Parse(BirthNum.ToString().Substring(2, 2)) > 0)
+            {
+                days = DateTime.DaysInMonth(year, month);
+            }
+
+            if (helpInt > 0 && helpInt <= days)
+            {
+                b = true;
+            }
+
+            return b;
+        }
+
+        public bool Check8()
+        {
+            bool b = false;
+
+            if (year < DateTime.Now.Year && month.ToString().Length == 2 && year.ToString().Length == 4)
+            {
+                b = true;
+            }
+
+            return b;
+        }
+
+        public bool Check9()
+        {
+            bool b = true;
+            int helpInt = BirthNum.ToString().Length;
+            int endInt = Int32.Parse(BirthNum.ToString().Substring(6, 3));
+
+            if (MainEPC && helpInt == 9 && endInt >= 600)
+            {
+                b = false;
+            }
+
+            return b;
+        }
+
+        public bool Check10()
+        {
+            bool b = true;
+            int helpInt = BirthNum.ToString().Length;
+            int endInt = 0;
+
+            if (BirthNum.ToString().Length == 10)
+            {
+                endInt = Int32.Parse(BirthNum.ToString().Substring(6, 4));
+            }
+
+            if (MainEPC && helpInt == 10 && endInt >= 6000)
+            {
+                b = false;
+            }
+
+            return b;
+        }
+
+        public bool Check11()
+        {
+            bool b = false;
+            string a = BirthNum.ToString();
+            int helpInt = 0;
+            int helpNumA = 0;
+            int helpNumB = 0;
+
+            for (int i = 1; i < BirthNum.ToString().Length; i++)
+            {
+                if ((i % 2) == 0)
+                {
+                    helpNumB += Int32.Parse(a[i].ToString());
+                }
+                else
+                {
+                    helpNumA += Int32.Parse(a[i].ToString());
+                }
+            }
+
+            helpInt = Math.Abs(helpNumA - helpNumB) / 11;
+
+            if (BirthNum.ToString().Length == 10 && (helpInt % 1) == 0)
+            {
+                b = true;
+            }
+
+            return b;
+        }
     }
 }
+    
