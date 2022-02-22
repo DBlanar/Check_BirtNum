@@ -223,7 +223,7 @@ namespace Check_BirtNum
             int helpNumA = 0;
             int helpNumB = 0;
 
-            for (int i = 1; i < BirthNum.ToString().Length; i++)
+            for (int i = 0; i < BirthNum.ToString().Length; i++)
             {
                 if ((i % 2) == 0)
                 {
