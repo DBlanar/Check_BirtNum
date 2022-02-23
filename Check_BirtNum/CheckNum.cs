@@ -121,6 +121,7 @@ namespace Check_BirtNum
         public bool Check5()
         {
             bool b = false;
+            string helpStr;
             int helpInt = Int32.Parse(BirthNumStr.Substring(0, 2));
 
             if (BirthNumStr.Length == 9 && helpInt > 53 && helpInt < 100)
@@ -130,12 +131,25 @@ namespace Check_BirtNum
             }
             else if (BirthNumStr.Length == 10 && helpInt < 100 && helpInt > 53 || BirthNumStr.Length == 9 && helpInt >= 0 && helpInt < 54)
             {
-                year = Int32.Parse("19" + helpInt.ToString());
+                if (helpInt < 10)
+                {
+                    helpStr = "0" + helpInt.ToString();  
+                    year = Int32.Parse("19" + helpStr);
+                }
+                else
+                {
+                    year = Int32.Parse("19" + helpInt.ToString());
+                }
                 return b = true;
             }
             else if (BirthNumStr.Length == 10 && helpInt < 54 && helpInt >= 0)
             {
-                year = Int32.Parse("20" + helpInt.ToString());
+                if (helpInt < 10) {
+                    helpStr = "0" + helpInt.ToString();  
+                    year = Int32.Parse("20" + helpStr);
+                } else {
+                    year = Int32.Parse("20" + helpInt.ToString());
+                }
                 return b = true;
             }
 
