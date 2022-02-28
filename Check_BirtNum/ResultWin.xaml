@@ -46,8 +46,8 @@
         <Label Content="Měsíc:" HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Den:" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="další chyba:" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="koncovka u EČP u 9 RČ:" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
-        <Label Content="koncovka u EČP u 10 RČ:" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="koncovka u EČP u 9:" HorizontalAlignment="Center" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="koncovka u EČP u 10:" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Label Content="Dělitelnost 11:" HorizontalAlignment="Center" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" FontSize="25"/>
         <Button x:Name="Return" Click="Return_Click" Content="zavřít" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="0" VerticalAlignment="Center" FontSize="25" Width="80" Height="40"/>
     </Grid>

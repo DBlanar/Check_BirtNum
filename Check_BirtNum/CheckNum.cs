@@ -15,15 +15,17 @@ namespace Check_BirtNum
         int year;
         int month;
         bool MainEPC = false;
+        bool numCheck = false;
 
         public bool Check0(string a)
         {
             bool b = false;
+            BirthNumStr = a;
 
             if (Int64.TryParse(a, out BirthNum))
             {
                 BirthNumStr = a;
-                return b = true;
+                b = true;
             }
             else
             {
@@ -35,18 +37,13 @@ namespace Check_BirtNum
                     if (Int64.TryParse(a, out BirthNum))
                     {
                         BirthNumStr = a;
-                        return b = true;
+                        b = true;
                     }
-                    else
-                    {
-                        return b;
-                    }
-                }
-                else
-                {
-                    return b;
                 }
             }
+
+            numCheck = b;
+            return b;
         }
 
         public bool Check1()
@@ -82,18 +79,19 @@ namespace Check_BirtNum
             return b = true;
         }
 
-        public bool Check4()
+        public List<bool> Check4()
         {
-            bool b = false;
-            bool epc = false;
-            bool rcPlus = false;
+            List<bool> helpList = new List<bool>();
+
+            if (BirthNumStr.Length < 9 && numCheck == false)
+            {
+                helpList.Add(false);
+                helpList.Add(false);
+                return helpList;
+            }
+
             int helpIntRC = Int32.Parse(BirthNumStr.Substring(2, 2));
             int helpIntEPC = Int32.Parse(BirthNumStr.Substring(4, 2));
-
-            if (BirthNumStr.Length < 5)
-            {
-                return b;
-            }
 
             if (helpIntRC > 50)
             {
@@ -102,26 +100,35 @@ namespace Check_BirtNum
 
             if (helpIntRC > 20)
             {
-                rcPlus = true;
+                helpList.Add(true);
+            }
+            else
+            {
+                helpList.Add(false);
             }
 
             if (helpIntEPC > 40)
             {
-                epc = true;
+                helpList.Add(true);
                 MainEPC = true;
             }
-
-            if (epc && rcPlus)
+            else
             {
-                return b = true;
+                helpList.Add(false);
             }
-            return b;
+
+            return helpList;
         }
 
         public bool Check5()
         {
             bool b = false;
             string helpStr;
+            if (numCheck == false)
+            {
+                return b;
+            }
+
             int helpInt = Int32.Parse(BirthNumStr.Substring(0, 2));
 
             if (BirthNumStr.Length == 9 && helpInt > 53 && helpInt < 100)
@@ -159,6 +166,12 @@ namespace Check_BirtNum
         public bool Check6()
         {
             bool b = false;
+
+            if (numCheck == false)
+            {
+                return b;
+            }
+
             int helpInt = Int32.Parse(BirthNumStr.Substring(2, 2));
 
             if (helpInt > 0 && helpInt < 13 && BirthNumStr.Length == 10 || BirthNumStr.Length == 9)
@@ -172,6 +185,12 @@ namespace Check_BirtNum
         public bool Check7()
         {
             bool b = false;
+
+            if (numCheck == false)
+            {
+                return b;
+            }
+
             int helpInt = Int32.Parse(BirthNumStr.Substring(4, 2));
 
             if (Int32.Parse(BirthNumStr.Substring(2, 2)) < 13 && Int32.Parse(BirthNumStr.Substring(2, 2)) > 0)
@@ -191,7 +210,7 @@ namespace Check_BirtNum
         {
             bool b = false;
 
-            if (year < DateTime.Now.Year && month.ToString().Length == 2 && year.ToString().Length == 4)
+            if (year < DateTime.Now.Year && year.ToString().Length == 4 && month.ToString().Length == 2 || month.ToString().Length == 1)
             {
                 b = true;
             }
@@ -203,6 +222,12 @@ namespace Check_BirtNum
         {
             bool b = true;
             int helpInt = BirthNumStr.Length;
+
+            if (numCheck == false)
+            {
+                return b;
+            }
+
             int endInt = Int32.Parse(BirthNumStr.Substring(6, 3));
 
             if (MainEPC && helpInt == 9 && endInt >= 600)
@@ -239,6 +264,11 @@ namespace Check_BirtNum
             int helpInt = 0;
             int helpNumA = 0;
             int helpNumB = 0;
+
+            if (numCheck == false)
+            {
+                return b;
+            }
 
             for (int i = 0; i < BirthNumStr.Length; i++)
             {

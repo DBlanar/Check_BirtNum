@@ -25,6 +25,14 @@ namespace Check_BirtNum
             InitializeComponent();
         }
 
+        private void Check_Key(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Check_Click(sender, e);
+            }
+        }
+
         private void Check_Click(object sender, RoutedEventArgs e)
         {
             ResultWin win = new ResultWin();
@@ -63,14 +71,22 @@ namespace Check_BirtNum
             }
 
             // kontrola zda EPČ a RČ+ = true
-            if (chk.Check4() == false)
+            List<bool> arg = chk.Check4();
+            if (arg[0] == true && arg[1] == true)
             {
-                win.Show10.Content = "True";
-                helpBool = true;
+                win.Show10.Content = "Ano";
+            }
+            else if (arg[0] == true && arg[1] == false)
+            {
+                win.Show10.Content = "RČ+";
+            }
+            else if (arg[0] == false && arg[1] == true)
+            {
+                win.Show10.Content = "EPČ";
             }
             else
             {
-                win.Show10.Content = "False";
+                win.Show10.Content = "Ne";
             }
 
             // kontrola zda rok cisla je ve spravnem rozmezi
@@ -107,6 +123,10 @@ namespace Check_BirtNum
                 win.Show3.Content = "True";
                 helpBool = true;
             }
+            else if (arg[1] == false)
+            {
+                win.Show3.Content = "--";
+            }
             else
             {
                 win.Show3.Content = "False";
@@ -117,6 +137,10 @@ namespace Check_BirtNum
             {
                 win.Show4.Content = "True";
                 helpBool = true;
+            }
+            else if (arg[1] == false)
+            {
+                win.Show4.Content = "--";
             }
             else
             {
