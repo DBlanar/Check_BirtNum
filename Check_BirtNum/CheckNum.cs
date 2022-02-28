@@ -83,7 +83,7 @@ namespace Check_BirtNum
         {
             List<bool> helpList = new List<bool>();
 
-            if (BirthNumStr.Length < 9 && numCheck == false)
+            if (BirthNumStr.Length < 9 || numCheck == false)
             {
                 helpList.Add(false);
                 helpList.Add(false);
@@ -167,7 +167,7 @@ namespace Check_BirtNum
         {
             bool b = false;
 
-            if (numCheck == false)
+            if (numCheck == false || BirthNumStr.Length < 9)
             {
                 return b;
             }
@@ -186,7 +186,7 @@ namespace Check_BirtNum
         {
             bool b = false;
 
-            if (numCheck == false)
+            if (numCheck == false || BirthNumStr.Length < 9)
             {
                 return b;
             }
@@ -223,7 +223,7 @@ namespace Check_BirtNum
             bool b = true;
             int helpInt = BirthNumStr.Length;
 
-            if (numCheck == false)
+            if (numCheck == false || BirthNumStr.Length < 9)
             {
                 return b;
             }

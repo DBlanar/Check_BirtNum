@@ -35,9 +35,26 @@ namespace Check_BirtNum
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
+            Check_Num(Input.Text.ToString());
+        }
+
+        private void OpenFile_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> fileList = new List<string>();
+            FileExplorer winF = new FileExplorer();
+            winF.Show();
+
+
+            foreach (var item in fileList)
+            {
+                Check_Num(item);
+            }
+        }
+
+        private void Check_Num(string input)
+        {
             ResultWin win = new ResultWin();
             CheckNum chk = new CheckNum();
-            string input = Input.Text.ToString();
             bool helpBool = false;
 
             win.NumberShow.Content = input;
