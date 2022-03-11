@@ -48,35 +48,29 @@ namespace Check_BirtNum
 
         public bool Check1()
         {
-            bool b = false;
-
             if (BirthNumStr.Length >= 9)
             {
-                return b = true;
+                return true;
             }
-            return b;
+            return false;
         }
 
         public bool Check2()
         {
-            bool b = false;
-
             if (BirthNumStr.Length <= 10)
             {
-                return b = true;
+                return true;
             }
-            return b;
+            return false;
         }
 
         public bool Check3()
         {
-            bool b = false;
-
             if (BirthNumStr.Length == 9 && BirthNumStr[7] == 0 && BirthNumStr[8] == 0 && BirthNumStr[9] == 0)
             {
-                return b;
+                return false;
             }
-            return b = true;
+            return true;
         }
 
         public List<bool> Check4()
@@ -134,7 +128,7 @@ namespace Check_BirtNum
             if (BirthNumStr.Length == 9 && helpInt > 53 && helpInt < 100)
             {
                 year = Int32.Parse("18" + helpInt.ToString());
-                return b = true;
+                return true;
             }
             else if (BirthNumStr.Length == 10 && helpInt < 100 && helpInt > 53 || BirthNumStr.Length == 9 && helpInt >= 0 && helpInt < 54)
             {
@@ -147,7 +141,7 @@ namespace Check_BirtNum
                 {
                     year = Int32.Parse("19" + helpInt.ToString());
                 }
-                return b = true;
+                return true;
             }
             else if (BirthNumStr.Length == 10 && helpInt < 54 && helpInt >= 0)
             {

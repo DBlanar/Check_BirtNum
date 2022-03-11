@@ -12,12 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using Microsoft.Win32;
+using System.IO;
 
 namespace Check_BirtNum
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -40,10 +44,23 @@ namespace Check_BirtNum
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
-            List<string> fileList = new List<string>();
-            FileExplorer winF = new FileExplorer();
-            winF.Show();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Read_File(openFileDialog.FileName);
+            }
+        }
 
+        protected internal void Read_File(string del)
+        {
+            List<string> fileList = new List<string>();
+
+            if (del != null)
+            {
+                Debug.WriteLine(del);
+                File.ReadAllText(del);
+            }
 
             foreach (var item in fileList)
             {
