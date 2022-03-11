@@ -39,7 +39,19 @@ namespace Check_BirtNum
 
         private void Check_Click(object sender, RoutedEventArgs e)
         {
-            Check_Num(Input.Text.ToString());
+            string text = Input.Text.ToString();
+            if (text == "" || text == " ")
+            {
+                string textMes = "Nic nebylo zadáno!";
+                string title = "Zpráva";
+                MessageBoxButton button = MessageBoxButton.OK;
+                MessageBoxImage icon = MessageBoxImage.Warning;
+                MessageBox.Show(textMes, title, button, icon);
+            }
+            else
+            {
+                Check_Num(text);
+            }
         }
 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
