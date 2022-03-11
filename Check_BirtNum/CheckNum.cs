@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Diagnostics;
 
 namespace Check_BirtNum
 {
     class CheckNum
     {
-        Int64 BirthNum;
         string BirthNumStr;
         int days;
         int year;
@@ -21,6 +21,7 @@ namespace Check_BirtNum
         {
             bool b = false;
             BirthNumStr = a;
+            Int64 BirthNum;
 
             if (Int64.TryParse(a, out BirthNum))
             {
@@ -132,7 +133,7 @@ namespace Check_BirtNum
             }
             else if (BirthNumStr.Length == 10 && helpInt < 100 && helpInt > 53 || BirthNumStr.Length == 9 && helpInt >= 0 && helpInt < 54)
             {
-                if (helpInt < 10)
+                if (helpInt.ToString().Length == 1)
                 {
                     helpStr = "0" + helpInt.ToString();  
                     year = Int32.Parse("19" + helpStr);
@@ -145,15 +146,14 @@ namespace Check_BirtNum
             }
             else if (BirthNumStr.Length == 10 && helpInt < 54 && helpInt >= 0)
             {
-                if (helpInt < 10) {
+                if (helpInt.ToString().Length == 1) {
                     helpStr = "0" + helpInt.ToString();  
                     year = Int32.Parse("20" + helpStr);
                 } else {
                     year = Int32.Parse("20" + helpInt.ToString());
                 }
-                return b = true;
+                return true;
             }
-
             return b;
         }
 
@@ -168,7 +168,12 @@ namespace Check_BirtNum
 
             int helpInt = Int32.Parse(BirthNumStr.Substring(2, 2));
 
-            if (helpInt > 0 && helpInt < 13 && BirthNumStr.Length == 10 || BirthNumStr.Length == 9)
+            if (helpInt > 50 && helpInt < 63)
+            {
+                helpInt -= 50;
+            }
+
+            if (helpInt > 0 && helpInt < 13)
             {
                 month = helpInt;
                 return b = true;
@@ -187,7 +192,7 @@ namespace Check_BirtNum
 
             int helpInt = Int32.Parse(BirthNumStr.Substring(4, 2));
 
-            if (Int32.Parse(BirthNumStr.Substring(2, 2)) < 13 && Int32.Parse(BirthNumStr.Substring(2, 2)) > 0)
+            if (month < 13 && Int32.Parse(BirthNumStr.Substring(2, 2)) > 0)
             {
                 days = DateTime.DaysInMonth(year, month);
             }
@@ -255,7 +260,7 @@ namespace Check_BirtNum
         {
             bool b = false;
             string a = BirthNumStr;
-            int helpInt = 0;
+            double helpInt = 0;
             int helpNumA = 0;
             int helpNumB = 0;
 
@@ -276,9 +281,17 @@ namespace Check_BirtNum
                 }
             }
 
-            helpInt = Math.Abs(helpNumA - helpNumB) / 11;
+            helpInt = Math.Abs(helpNumA - helpNumB);
+            Debug.WriteLine(Math.Abs(helpNumA - helpNumB));
+            Debug.WriteLine(helpInt / 11);
+            helpInt = helpInt / 11;
 
             if (BirthNumStr.Length == 10 && (helpInt % 1) == 0)
+            {
+                b = true;
+            }
+
+            if (BirthNumStr.Length == 9)
             {
                 b = true;
             }

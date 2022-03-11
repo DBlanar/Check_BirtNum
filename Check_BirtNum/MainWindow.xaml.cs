@@ -45,7 +45,7 @@ namespace Check_BirtNum
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.Filter = "CSV (*.csv)|*.csv|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
                 Read_File(openFileDialog.FileName);
@@ -58,8 +58,16 @@ namespace Check_BirtNum
 
             if (del != null)
             {
-                Debug.WriteLine(del);
-                File.ReadAllText(del);
+                char[] sep = new char[] { ' ', '.', '\n', ',' };
+                string[] data = File.ReadAllText(del).Split(sep, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var item in data)
+                {
+                    if (item == " ")
+                    {
+                        continue;
+                    }
+                    fileList.Add(item.Trim());
+                }
             }
 
             foreach (var item in fileList)
@@ -186,6 +194,10 @@ namespace Check_BirtNum
             {
                 win.Show5.Content = "Chyba";
                 helpBool = true;
+            }
+            else if (input.Length == 9)
+            {
+                win.Show5.Content = "--";
             }
 
             // hlavni output kontrola "zkraceni"
