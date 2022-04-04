@@ -192,7 +192,7 @@ namespace Check_BirtNum
 
             int helpInt = Int32.Parse(BirthNumStr.Substring(4, 2));
 
-            if (month < 13 && Int32.Parse(BirthNumStr.Substring(2, 2)) > 0)
+            if (month < 13 && Int32.Parse(BirthNumStr.Substring(2, 2)) > 0 && year != 0 && month != 0)
             {
                 days = DateTime.DaysInMonth(year, month);
             }
